@@ -8,15 +8,9 @@ const getYieldForCrop = (crops) => {
 }
 
 const getTotalYield = (crops) => {
-    let totalYield = 0;
-    const totalYieldForVariousCrops = Object.values(crops)
-    const totalYieldForVariousCropsFlattened = totalYieldForVariousCrops.flat(1);
-    for (let totalYieldForOneCrop of totalYieldForVariousCropsFlattened) {
-        totalYield += totalYieldForOneCrop.crop.yield * totalYieldForOneCrop.numCrops;
-    }
-    return totalYield
+    return Object.values(crops).flat(1).reduce((totalYield, totalYieldForOneCrop) =>
+        totalYield + totalYieldForOneCrop.crop.yield * totalYieldForOneCrop.numCrops, 0)
 }
-
 
 module.exports = {
     getYieldForPlant,
