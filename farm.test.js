@@ -7,6 +7,7 @@ const {
     getCostsForCrop,
     getRevenueForCrop,
     getProfitsForCrop,
+    getTotalProfit,
 } = require("./farm");
 
 describe("getYieldForPlant", () => {
@@ -137,5 +138,44 @@ describe("getProfitForCrop", () => {
             numCrops: 0,
         };
         expect(getProfitsForCrop(input)).toBe(0);
+    });
+});
+
+
+describe("getTotalProfit", () => {
+    test("advocado and mango, both with number of crops > 0", () => {
+        const avocado = {
+            name: "avocado",
+            costPrice: 1,
+            salesPrice: 5,
+        };
+        const mango = {
+            name: "mango",
+            costPrice: 4,
+            salesPrice: 8,
+        };
+        const crops = [
+            { crop: avocado, numCrops: 6 },
+            { crop: mango, numCrops: 7 },
+        ];
+        expect(getTotalProfit({ crops })).toBe(52);
+    });
+
+    test("advocado and mango, both with number of crops equals 0", () => {
+        const avocado = {
+            name: "avocado",
+            costPrice: 1,
+            salesPrice: 5,
+        };
+        const mango = {
+            name: "mango",
+            costPrice: 4,
+            salesPrice: 8,
+        };
+        const crops = [
+            { crop: avocado, numCrops: 0 },
+            { crop: mango, numCrops: 0 },
+        ];
+        expect(getTotalProfit({ crops })).toBe(0);
     });
 });

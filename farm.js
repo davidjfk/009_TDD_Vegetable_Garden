@@ -24,7 +24,11 @@ const getProfitsForCrop = (crops) => {
     return getRevenueForCrop(crops) - getCostsForCrop(crops)
 }
 
-
+const getTotalProfit = (crops) => {
+    return Object.values(crops).flat(1).reduce((totalYield, totalYieldForOneCrop) =>
+        totalYield + ((totalYieldForOneCrop.crop.salesPrice - totalYieldForOneCrop.crop.costPrice) *
+            totalYieldForOneCrop.numCrops), 0)
+}
 
 module.exports = {
     getYieldForPlant,
@@ -33,4 +37,5 @@ module.exports = {
     getCostsForCrop,
     getRevenueForCrop,
     getProfitsForCrop,
+    getTotalProfit,
 };
