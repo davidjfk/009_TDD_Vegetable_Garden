@@ -94,17 +94,19 @@ describe("getRevenueForCrop", () => {
         const pineapple = {
             name: "pineapple",
             salesPrice: 10,
+            yield: 2,
         };
         const input = {
             crop: pineapple,
             numCrops: 10,
         };
-        expect(getRevenueForCrop(input)).toBe(100);
+        expect(getRevenueForCrop(input)).toBe(200);
     });
     test("Revenue of 0 species of pineapple", () => {
         const pineapple = {
             name: "pineapple",
             salesPrice: 10,
+            yield: 2,
         };
         const input = {
             crop: pineapple,
@@ -120,18 +122,20 @@ describe("getProfitForCrop", () => {
             name: "carrot",
             costPrice: 2,
             salesPrice: 4,
+            yield: 4,
         };
         const input = {
             crop: carrot,
             numCrops: 10,
         };
-        expect(getProfitsForCrop(input)).toBe(20);
+        expect(getProfitsForCrop(input)).toBe(140);
     });
     test("Profit of 0 species of carrot", () => {
         const carrot = {
             name: "carrot",
             costPrice: 2,
             salesPrice: 4,
+            yield: 4,
         };
         const input = {
             crop: carrot,
@@ -148,17 +152,19 @@ describe("getTotalProfit", () => {
             name: "avocado",
             costPrice: 1,
             salesPrice: 5,
+            yield: 3,
         };
         const mango = {
             name: "mango",
             costPrice: 4,
             salesPrice: 8,
+            yield: 4,
         };
         const crops = [
             { crop: avocado, numCrops: 6 },
             { crop: mango, numCrops: 7 },
         ];
-        expect(getTotalProfit({ crops })).toBe(52);
+        expect(getTotalProfit({ crops })).toBe(280);
     });
 
     test("advocado and mango, both with number of crops equals 0", () => {
@@ -166,11 +172,13 @@ describe("getTotalProfit", () => {
             name: "avocado",
             costPrice: 1,
             salesPrice: 5,
+            yield: 3,
         };
         const mango = {
             name: "mango",
             costPrice: 4,
             salesPrice: 8,
+            yield: 4,
         };
         const crops = [
             { crop: avocado, numCrops: 0 },
