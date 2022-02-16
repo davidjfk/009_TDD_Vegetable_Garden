@@ -48,9 +48,11 @@ const getCostsForCrop = (crops) => {
 }
 
 // nr 5of7:
-const getRevenueForCrop = (crops) => {
-    return crops.crop.salesPrice * getYieldForCrop(crops);
+const getRevenueForCrop = (crops, environmentFactors = {}) => {
+    console.log(`salesPrice: ${crops.crop.salesPrice}`)
+    return (crops.crop.salesPrice * getYieldForCrop(crops, environmentFactors));
 }
+
 
 // nr 6of7:
 const getProfitsForCrop = (crops) => {
