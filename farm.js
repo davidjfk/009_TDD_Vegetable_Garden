@@ -22,27 +22,24 @@ const getYieldForCrop = (crops, environmentFactors = {}) => {
     let yieldForPlant = crops.crop.yield * crops.numCrops;
     let { crop: { factor } } = crops
     if (!factor) {
-        console.log('foo')
         return yieldForPlant;
     } else {
-        console.log('bar')
         let environmentVariables = Object.keys(environmentFactors);
         environmentVariables.forEach(key => {
             if (crops.crop?.factor?.[key] && environmentFactors?.[key]) {
-                let relevantEnvironmentFactorKeyValue = environmentFactors[key]
+                let relevantEnvironmentFactorKeyValue = environmentFactors[key];
                 yieldForPlant *= (100 + crops.crop.factor[key][relevantEnvironmentFactorKeyValue]) / 100
             }
         })
-        return Math.floor(yieldForPlant)
+        return yieldForPlant
     }
 }
 
 
-
 // nr 3of7:
-const getTotalYield = (crops) => {
-    return Object.values(crops).flat(1).reduce((totalYield, totalYieldForOneCrop) =>
-        totalYield + getYieldForCrop(totalYieldForOneCrop), 0)
+const getTotalYield = (crops, environmentFactors = {}) => {
+    return Math.floor(Object.values(crops).flat(1).reduce((totalYield, totalYieldForOneCrop) =>
+        totalYield + getYieldForCrop(totalYieldForOneCrop, environmentFactors), 0))
 }
 
 // nr 4of7:
