@@ -55,8 +55,12 @@ const getRevenueForCrop = (crops, environmentFactors = {}) => {
 
 
 // nr 6of7:
-const getProfitsForCrop = (crops) => {
-    return getRevenueForCrop(crops) - getCostsForCrop(crops)
+// const getProfitsForCrop = (crops) => {
+//     return getRevenueForCrop(crops) - getCostsForCrop(crops)
+// }
+
+const getProfitsForCrop = (crops, environmentFactors = {}) => {
+    return getRevenueForCrop(crops, environmentFactors) - getCostsForCrop(crops)
 }
 
 // nr 7of7:
