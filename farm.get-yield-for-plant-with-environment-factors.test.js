@@ -1,10 +1,10 @@
 const { describe, test, expect } = require("@jest/globals");
 const { getYieldForPlant } = require("./farm");
 
-describe("getYieldForPlant with environment variables", () => {
+describe("getYieldForPlant with environmental variables", () => {
 
 
-    test("Get yield for plant with 1 environment factor", () => {
+    test("Get yield for plant with 1 environmental factor", () => {
         const corn = {
             name: "corn",
             yield: 30,
@@ -17,14 +17,14 @@ describe("getYieldForPlant with environment variables", () => {
             },
         };
 
-        const environmentFactors = {
+        const environmentalFactors = {
             sun: "low",
         };
 
-        expect(getYieldForPlant(corn, environmentFactors)).toBe(15);
+        expect(getYieldForPlant(corn, environmentalFactors)).toBe(15);
     });
 
-    test("Get yield for plant with 2 environment factor", () => {
+    test("Get yield for plant with 2 environmental factors", () => {
         const corn = {
             name: "corn",
             yield: 30,
@@ -42,14 +42,14 @@ describe("getYieldForPlant with environment variables", () => {
             },
         };
 
-        const environmentFactors = {
+        const environmentalFactors = {
             sun: "high",
             wind: "high"
         };
-        expect(getYieldForPlant(corn, environmentFactors)).toBe(36);
+        expect(getYieldForPlant(corn, environmentalFactors)).toBe(36);
     });
 
-    test("Get yield for plant with 3 relevant environment factors AND 1 irrelevant factor", () => {
+    test("Get yield for plant with 3 environmental factors AND 1 irrelevant factor", () => {
         const corn = {
             name: "corn",
             yield: 30,
@@ -72,13 +72,13 @@ describe("getYieldForPlant with environment variables", () => {
             },
         };
 
-        const environmentFactors = {
+        const environmentalFactors = {
             sun: "medium",
             temp: "low",
             soilType: "sand",
             wind: "medium",
 
         };
-        expect(getYieldForPlant(corn, environmentFactors)).toBe(18);
+        expect(getYieldForPlant(corn, environmentalFactors)).toBe(18);
     });
 });

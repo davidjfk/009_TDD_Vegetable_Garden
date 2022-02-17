@@ -65,7 +65,7 @@ describe("getTotalYield", () => {
 // do not modify code above: 
 
 describe("getCostsForCrop", () => {
-    test("Costs of 10 species of corn", () => {
+    test("getCostsForCrop of 10 species of corn", () => {
         const corn = {
             name: "corn",
             costPrice: 1,
@@ -90,7 +90,7 @@ describe("getCostsForCrop", () => {
 });
 
 describe("getRevenueForCrop", () => {
-    test("Revenue of 10 species of pineapple", () => {
+    test("getRevenueForCrop of 10 species of pineapple", () => {
         const pineapple = {
             name: "pineapple",
             salesPrice: 10,
@@ -102,7 +102,7 @@ describe("getRevenueForCrop", () => {
         };
         expect(getRevenueForCrop(input)).toBe(200);
     });
-    test("Revenue of 0 species of pineapple", () => {
+    test("getRevenueForCrop of 0 species of pineapple", () => {
         const pineapple = {
             name: "pineapple",
             salesPrice: 10,
@@ -117,7 +117,7 @@ describe("getRevenueForCrop", () => {
 });
 
 describe("getProfitForCrop", () => {
-    test("Profit of 10 species of carrot", () => {
+    test("getProfitForCrop of 10 species of carrot", () => {
         const carrot = {
             name: "carrot",
             costPrice: 2,
@@ -130,7 +130,7 @@ describe("getProfitForCrop", () => {
         };
         expect(getProfitsForCrop(input)).toBe(140);
     });
-    test("Profit of 0 species of carrot", () => {
+    test("getProfitForCrop of 0 species of carrot", () => {
         const carrot = {
             name: "carrot",
             costPrice: 2,
@@ -147,7 +147,7 @@ describe("getProfitForCrop", () => {
 
 
 describe("getTotalProfit", () => {
-    test("advocado and mango, both with number of crops > 0", () => {
+    test("getTotalProfit of avocado and mango, both with number of crops > 0", () => {
         const avocado = {
             name: "avocado",
             costPrice: 1,
@@ -167,7 +167,7 @@ describe("getTotalProfit", () => {
         expect(getTotalProfit({ crops })).toBe(280);
     });
 
-    test("advocado and mango, both with number of crops equals 0", () => {
+    test("getTotalProfit of avocado and mango, both with number of crops of 0", () => {
         const avocado = {
             name: "avocado",
             costPrice: 1,

@@ -1,8 +1,8 @@
 const { describe, test, expect } = require("@jest/globals");
 const { getRevenueForCrop } = require("./farm");
 
-describe("getRevenueForCrop for crop with environmental factor(s)", () => {
-    test("Get totalYield for 1 crop with 1 environment factor", () => {
+describe("getRevenueForCrop with environmental factor(s)", () => {
+    test("getRevenueForCrop for 1 crop with 1 environmental factor", () => {
         const corn = {
             name: "corn",
             yield: 3,
@@ -20,13 +20,13 @@ describe("getRevenueForCrop for crop with environmental factor(s)", () => {
             numCrops: 5
         };
 
-        const environmentFactors = {
+        const environmentalFactors = {
             sun: "low",
         };
-        expect(getRevenueForCrop(input, environmentFactors)).toBe(45.00);
+        expect(getRevenueForCrop(input, environmentalFactors)).toBe(45.00);
     });
 
-    test("Get totalYield for 1 crop with 2 environmental factors", () => {
+    test("getRevenueForCrop for 1 crop with 2 environmental factors", () => {
         const mango = {
             name: "mango",
             yield: 4,
@@ -49,18 +49,18 @@ describe("getRevenueForCrop for crop with environmental factor(s)", () => {
             numCrops: 2
         };
 
-        const environmentFactors = {
+        const environmentalFactors = {
             soilType: "clay",
             wind: "high",
         };
 
-        expect(getRevenueForCrop(input, environmentFactors)).toBe(49.28);
+        expect(getRevenueForCrop(input, environmentalFactors)).toBe(49.28);
     });
 
 
 
 
-    test("Get totalYield for 1 crop with 4 environmental factors, of which 1 irrelevant. ", () => {
+    test("getRevenueForCrop for 1 crop with 4 environmental factors, of which 1 irrelevant. ", () => {
         const avocado = {
             name: "avocado",
             yield: 3,
@@ -88,17 +88,17 @@ describe("getRevenueForCrop for crop with environmental factor(s)", () => {
             numCrops: 20
         };
 
-        const environmentFactors = {
+        const environmentalFactors = {
             soilType: "sand",
             sun: "high",
             temp: "high",
             wind: "medium",
         };
 
-        expect(getRevenueForCrop(input, environmentFactors)).toBe(567);
+        expect(getRevenueForCrop(input, environmentalFactors)).toBe(567);
     });
 
-    test("Get totalYield for 1 crop with 4 environmental factors, of which 1 irrelevant. ", () => {
+    test("getRevenueForCrop for 1 crop with 4 environmental factors, of which 1 irrelevant. ", () => {
         const mango = {
             name: "mango",
             yield: 4,
@@ -126,14 +126,14 @@ describe("getRevenueForCrop for crop with environmental factor(s)", () => {
             numCrops: 14
         };
 
-        const environmentFactors = {
+        const environmentalFactors = {
             soilType: "soil",
             sun: "low",
             temp: "high",
             wind: "medium",
         };
 
-        expect(getRevenueForCrop(input, environmentFactors)).toBeCloseTo(235.2);
+        expect(getRevenueForCrop(input, environmentalFactors)).toBeCloseTo(235.2);
     });
 
 
